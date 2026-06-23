@@ -1,0 +1,6 @@
+{
+  "name": "PULSE Sneakers & Streetwear",
+  "description": "Premium sneaker and streetwear e-commerce boutique at Tanger Outlets Houston, Texas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
