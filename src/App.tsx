@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Brands from './components/Brands';
 import NewArrivals from './components/NewArrivals';
 import Categories from './components/Categories';
 import FeaturedBanner from './components/FeaturedBanner';
@@ -156,12 +155,7 @@ export default function App() {
         {/* Cinematic Minimal Hero */}
         <Hero onShopClick={handleShopNowClick} />
 
-        {/* Brand partners */}
-        <Brands onBrandSelect={(brand) => {
-          // Select brand filter inside arrivals component
-          setActiveCategory('All');
-          setSearchTerm('');
-        }} />
+
 
         {/* New Arrivals with 2x4 Product Grid */}
         <NewArrivals

@@ -65,32 +65,8 @@ export default function NewArrivals({
         {/* Section Header */}
         <div className="text-center mb-10">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-nb-black font-headline uppercase">
-            New Arrivals
+            {activeCategory === 'All' ? 'New Arrivals' : activeCategory}
           </h2>
-        </div>
-
-        {/* Category Tabs — underline style */}
-        <div className="flex justify-center gap-6 sm:gap-8 border-b border-nb-grey-200 mb-8">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => {
-                onCategorySelect(cat as any);
-                setSelectedBrand('All');
-              }}
-              className={`pb-3 text-[13px] font-medium tracking-wide uppercase transition-all relative ${
-                activeCategory === cat
-                  ? 'text-nb-black'
-                  : 'text-nb-grey-400 hover:text-nb-black'
-              }`}
-              id={`cat-pill-${cat}`}
-            >
-              {cat}
-              {activeCategory === cat && (
-                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-nb-black" />
-              )}
-            </button>
-          ))}
         </div>
 
         {/* Filters Bar — minimal */}
