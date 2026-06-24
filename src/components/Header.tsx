@@ -90,22 +90,22 @@ export default function Header({
                   section.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
               }}
-              className={`text-xs font-semibold tracking-widest uppercase transition-colors relative py-2 ${
+              className={`text-xs font-bold tracking-widest uppercase transition-all duration-200 relative py-2 ${
                 (activeCategory === item.value)
-                  ? 'text-pulse-green font-bold'
-                  : 'text-rich-black/70 hover:text-rich-black'
+                  ? 'text-pulse-green'
+                  : 'text-rich-black/70 hover:text-pulse-green'
               }`}
               id={`nav-item-${item.value}`}
             >
               {item.label}
               {(activeCategory === item.value) && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-pulse-green rounded-full" />
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-pulse-green rounded" />
               )}
             </button>
           ))}
           <button
             onClick={onScrollToStory}
-            className="text-xs font-semibold tracking-widest uppercase text-rich-black/70 hover:text-rich-black transition-colors py-2"
+            className="text-xs font-bold tracking-widest uppercase text-rich-black/70 hover:text-pulse-green transition-all duration-200 py-2"
             id="nav-item-story"
           >
             Our Story
