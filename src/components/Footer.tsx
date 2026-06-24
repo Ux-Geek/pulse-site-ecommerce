@@ -96,7 +96,7 @@ export default function Footer({ onCategorySelect, onScrollToStory }: FooterProp
               </a>
             </li>
             <li>
-              <span className="text-[10px] bg-pulse-green/10 text-pulse-green font-bold px-2 py-0.5 rounded font-price whitespace-nowrap">
+              <span className="text-[10px] bg-pulse-green/10 text-pulse-green font-bold px-2 py-0.5 rounded-[1px] font-price whitespace-nowrap">
                 FREE RESERVATIONS IN-APP
               </span>
             </li>

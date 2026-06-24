@@ -96,14 +96,14 @@ export default function CartDrawer({
               <h2 className="text-sm font-bold uppercase tracking-wider text-rich-black font-headline">
                 {isCheckoutMode ? 'Secured Checkout' : 'Shopping Bag'}
               </h2>
-              <span className="text-[10px] font-bold bg-rich-black text-white px-2 py-0.5 rounded-full font-price">
+              <span className="text-[10px] font-bold bg-rich-black text-white px-2 py-0.5 rounded-[1px] font-price">
                 {cartItems.reduce((sum, i) => sum + i.quantity, 0)}
               </span>
             </div>
             
             <button
               onClick={onClose}
-              className="p-2 rounded-full hover:bg-border-gray text-rich-black transition-colors"
+              className="p-2 rounded-[2px] hover:bg-border-gray text-rich-black transition-colors"
               aria-label="Close cart drawer"
               id="btn-close-cart-drawer"
             >
@@ -118,7 +118,7 @@ export default function CartDrawer({
             {orderReceipt ? (
               <div className="space-y-6 animate-fade-in">
                 <div className="text-center py-4 space-y-2">
-                  <div className="w-12 h-12 bg-pulse-green/10 text-pulse-green rounded-full flex items-center justify-center mx-auto mb-2">
+                  <div className="w-12 h-12 bg-nb-red/10 text-nb-red rounded-[2px] flex items-center justify-center mx-auto mb-2">
                     <ShieldCheck size={26} />
                   </div>
                   <h3 className="text-base font-extrabold text-rich-black font-headline">Order Confirmed</h3>
@@ -128,8 +128,8 @@ export default function CartDrawer({
                 </div>
 
                 {/* Barcoded simulated ticket */}
-                <div className="border border-border-gray rounded-xl bg-soft-gray/30 p-5 space-y-4 relative overflow-hidden">
-                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-pulse-green" />
+                <div className="border border-border-gray rounded-[2px] bg-soft-gray/30 p-5 space-y-4 relative overflow-hidden">
+                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-nb-red" />
                   
                   <div className="flex justify-between items-center text-[10px] font-bold text-rich-black/40 uppercase tracking-widest font-price">
                     <span>PULSE Receipt</span>
@@ -199,7 +199,7 @@ export default function CartDrawer({
                     setIsCheckoutMode(false);
                     onClose();
                   }}
-                  className="w-full py-3 bg-rich-black hover:bg-pulse-green text-white text-xs font-bold tracking-widest uppercase rounded-full shadow-md transition-all"
+                  className="w-full py-3 bg-nb-black hover:bg-nb-red text-white text-xs font-bold tracking-widest uppercase rounded-[2px] shadow-lg transition-all"
                   id="btn-receipt-continue"
                 >
                   Continue Browsing
@@ -218,7 +218,7 @@ export default function CartDrawer({
                     <button
                       type="button"
                       onClick={() => setCheckoutType('pickup')}
-                      className={`p-3.5 border rounded-xl flex flex-col items-center text-center gap-1.5 transition-all ${
+                      className={`p-3.5 border rounded-[2px] flex flex-col items-center text-center gap-1.5 transition-all ${
                         checkoutType === 'pickup'
                           ? 'border-pulse-green bg-pulse-green/5 text-pulse-green font-bold'
                           : 'border-border-gray hover:border-rich-black/20 text-rich-black/70 bg-white'
@@ -232,7 +232,7 @@ export default function CartDrawer({
                     <button
                       type="button"
                       onClick={() => setCheckoutType('courier')}
-                      className={`p-3.5 border rounded-xl flex flex-col items-center text-center gap-1.5 transition-all ${
+                      className={`p-3.5 border rounded-[2px] flex flex-col items-center text-center gap-1.5 transition-all ${
                         checkoutType === 'courier'
                           ? 'border-pulse-green bg-pulse-green/5 text-pulse-green font-bold'
                           : 'border-border-gray hover:border-rich-black/20 text-rich-black/70 bg-white'
@@ -255,11 +255,11 @@ export default function CartDrawer({
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       placeholder="e.g. Dallas Maverick"
-                      className="w-full bg-white border border-border-gray rounded-lg p-2.5 text-xs text-rich-black focus:outline-none focus:border-pulse-green"
+                      className="w-full bg-white border border-border-gray rounded-[2px] p-2.5 text-xs text-rich-black focus:outline-none focus:border-pulse-green"
                       id="input-checkout-name"
                     />
                   </div>
-
+ 
                   <div className="space-y-1">
                     <label className="text-[10px] font-bold uppercase text-rich-black/50 font-headline">Phone Number</label>
                     <input
@@ -268,11 +268,11 @@ export default function CartDrawer({
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="e.g. (281) 555-0195"
-                      className="w-full bg-white border border-border-gray rounded-lg p-2.5 text-xs text-rich-black focus:outline-none focus:border-pulse-green"
+                      className="w-full bg-white border border-border-gray rounded-[2px] p-2.5 text-xs text-rich-black focus:outline-none focus:border-pulse-green"
                       id="input-checkout-phone"
                     />
                   </div>
-
+ 
                   {checkoutType === 'pickup' ? (
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-1">
@@ -282,7 +282,7 @@ export default function CartDrawer({
                           required
                           value={pickupDate}
                           onChange={(e) => setPickupDate(e.target.value)}
-                          className="w-full bg-white border border-border-gray rounded-lg p-2.5 text-xs text-rich-black focus:outline-none focus:border-pulse-green"
+                          className="w-full bg-white border border-border-gray rounded-[2px] p-2.5 text-xs text-rich-black focus:outline-none focus:border-pulse-green"
                           id="input-checkout-date"
                         />
                       </div>
@@ -293,7 +293,7 @@ export default function CartDrawer({
                           required
                           value={pickupTime}
                           onChange={(e) => setPickupTime(e.target.value)}
-                          className="w-full bg-white border border-border-gray rounded-lg p-2.5 text-xs text-rich-black focus:outline-none focus:border-pulse-green"
+                          className="w-full bg-white border border-border-gray rounded-[2px] p-2.5 text-xs text-rich-black focus:outline-none focus:border-pulse-green"
                           id="input-checkout-time"
                         />
                       </div>
@@ -307,14 +307,14 @@ export default function CartDrawer({
                         onChange={(e) => setAddress(e.target.value)}
                         placeholder="e.g. Houston, Downtown Luxury Lofts Apt 5B"
                         rows={2}
-                        className="w-full bg-white border border-border-gray rounded-lg p-2.5 text-xs text-rich-black focus:outline-none focus:border-pulse-green resize-none"
+                        className="w-full bg-white border border-border-gray rounded-[2px] p-2.5 text-xs text-rich-black focus:outline-none focus:border-pulse-green resize-none"
                         id="input-checkout-address"
                       />
                     </div>
                   )}
                 </div>
 
-                <div className="bg-soft-gray p-4 rounded-xl space-y-1">
+                <div className="bg-soft-gray p-4 rounded-[2px] space-y-1">
                   <div className="flex items-center gap-2 text-xs font-bold text-rich-black">
                     <CreditCard size={14} className="text-pulse-green" />
                     <span>In-Store Handoff Validation</span>
@@ -323,19 +323,19 @@ export default function CartDrawer({
                     No card charge will be drawn online. We reserve your actual size at the Tanger Houston store. Simply validate with your barcode or ID on arrival.
                   </p>
                 </div>
-
+ 
                 <div className="flex gap-2.5 pt-2">
                   <button
                     type="button"
                     onClick={() => setIsCheckoutMode(false)}
-                    className="px-4 py-3 border border-border-gray rounded-full text-xs font-semibold uppercase hover:bg-soft-gray transition-all text-rich-black"
+                    className="px-4 py-3 border border-border-gray rounded-[2px] text-xs font-bold uppercase hover:bg-soft-gray transition-all text-rich-black"
                     id="btn-checkout-back"
                   >
                     Back
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 py-3 bg-rich-black hover:bg-pulse-green text-white text-xs font-bold tracking-widest uppercase rounded-full shadow-md transition-all flex items-center justify-center gap-1.5"
+                    className="flex-1 py-3 bg-nb-black hover:bg-nb-red text-white text-xs font-bold tracking-widest uppercase rounded-[2px] shadow-lg transition-all flex items-center justify-center gap-1.5"
                     id="btn-checkout-submit"
                   >
                     <span>Reserve My Sizing</span>
@@ -350,10 +350,10 @@ export default function CartDrawer({
                 {cartItems.map((item, idx) => (
                   <div
                     key={`${item.product.id}-${item.selectedSize}`}
-                    className="flex gap-4 p-3 border border-border-gray rounded-xl hover:border-rich-black/15 transition-all"
+                    className="flex gap-4 p-3 border border-border-gray rounded-[2px] hover:border-nb-red/20 transition-all"
                   >
                     {/* Item Image */}
-                    <div className="w-16 h-16 rounded-lg bg-soft-gray p-2 flex items-center justify-center shrink-0">
+                    <div className="w-16 h-16 rounded-[2px] bg-soft-gray p-2 flex items-center justify-center shrink-0">
                       <img
                         src={item.product.images[0]}
                         alt={item.product.name}
@@ -361,7 +361,7 @@ export default function CartDrawer({
                         referrerPolicy="no-referrer"
                       />
                     </div>
-
+ 
                     {/* Item Meta */}
                     <div className="flex-1 space-y-1">
                       <div className="flex justify-between items-start gap-1">
@@ -376,7 +376,7 @@ export default function CartDrawer({
                           <Trash2 size={13} />
                         </button>
                       </div>
-
+ 
                       <div className="flex justify-between items-center">
                         <p className="text-[10px] text-rich-black/50">
                           Size: <span className="font-bold text-rich-black">{item.selectedSize}</span> · {item.product.brand}
@@ -385,11 +385,11 @@ export default function CartDrawer({
                           ${(item.product.price * item.quantity).toFixed(2)}
                         </span>
                       </div>
-
+ 
                       {/* Quantity Toggles */}
                       <div className="flex justify-between items-center pt-1.5">
                         <span className="text-[10px] text-rich-black/40">Quantity:</span>
-                        <div className="flex items-center border border-border-gray rounded-md bg-white">
+                        <div className="flex items-center border border-border-gray rounded-[2px] bg-white">
                           <button
                             onClick={() => onUpdateQuantity(item.product.id, item.selectedSize, -1)}
                             className="px-1.5 py-0.5 hover:bg-soft-gray text-xs text-rich-black font-bold"
@@ -423,7 +423,7 @@ export default function CartDrawer({
                 </div>
                 <button
                   onClick={onClose}
-                  className="px-4 py-2 bg-rich-black text-white text-[10px] font-bold tracking-widest uppercase rounded-lg hover:bg-pulse-green transition-all"
+                  className="px-4 py-2 bg-rich-black text-white text-[10px] font-bold tracking-widest uppercase rounded-[2px] hover:bg-pulse-green transition-all"
                   id="btn-cart-shop-now"
                 >
                   Shop Now
@@ -439,19 +439,18 @@ export default function CartDrawer({
               
               {/* Promo Code area if not checking out */}
               {!isCheckoutMode && cartItems.length > 0 && (
-                <div className="space-y-1.5">
-                  <form onSubmit={handleApplyPromo} className="flex gap-2">
+                <div className="space-y-1.5">                  <form onSubmit={handleApplyPromo} className="flex gap-2">
                     <input
                       type="text"
                       placeholder="PROMO CODE"
                       value={promoCode}
                       onChange={(e) => setPromoCode(e.target.value)}
-                      className="flex-1 bg-white border border-border-gray rounded-lg px-3 py-2 text-xs focus:outline-none placeholder-rich-black/30 font-semibold"
+                      className="flex-1 bg-white border border-border-gray rounded-[2px] px-3 py-2 text-xs focus:outline-none placeholder-rich-black/30 font-semibold"
                       id="input-cart-promo"
                     />
                     <button
                       type="submit"
-                      className="px-4 py-2 bg-rich-black text-white text-[10px] font-bold tracking-widest uppercase rounded-lg"
+                      className="px-4 py-2 bg-rich-black text-white text-[10px] font-bold tracking-widest uppercase rounded-[2px]"
                       id="btn-apply-promo"
                     >
                       Apply
@@ -468,7 +467,7 @@ export default function CartDrawer({
                   )}
                 </div>
               )}
-
+ 
               {/* Pricing Math details */}
               {cartItems.length > 0 && (
                 <div className="space-y-1.5 text-xs font-price">
@@ -494,12 +493,12 @@ export default function CartDrawer({
                   </div>
                 </div>
               )}
-
+ 
               {/* Action Trigger */}
               {cartItems.length > 0 && !isCheckoutMode && (
                 <button
                   onClick={() => setIsCheckoutMode(true)}
-                  className="w-full py-3.5 bg-rich-black hover:bg-pulse-green text-white text-xs font-bold tracking-widest uppercase rounded-full shadow-md transition-all flex items-center justify-center gap-1.5 group"
+                  className="w-full py-3.5 bg-nb-black hover:bg-nb-red text-white text-xs font-bold tracking-widest uppercase rounded-[2px] shadow-lg transition-all flex items-center justify-center gap-1.5 group"
                   id="btn-trigger-checkout"
                 >
                   <span>Proceed to Reservation</span>

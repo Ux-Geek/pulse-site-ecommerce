@@ -47,21 +47,21 @@ export default function Newsletter() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
                   required
-                  className="w-full bg-white/5 border border-white/10 hover:border-white/20 focus:border-pulse-green focus:bg-white/10 focus:outline-none rounded-full py-3.5 pl-11 pr-4 text-xs font-medium placeholder-white/30 text-white transition-all font-sans"
+                  className="w-full bg-white/5 border border-white/10 hover:border-white/20 focus:border-pulse-green focus:bg-white/10 focus:outline-none rounded-[2px] py-3.5 pl-11 pr-4 text-xs font-medium placeholder-white/30 text-white transition-all font-sans"
                   id="input-newsletter-email"
                 />
               </div>
               <button
                 type="submit"
-                className="px-6 py-3.5 bg-pulse-green hover:bg-pulse-green/95 text-white text-xs font-bold tracking-widest uppercase rounded-full shadow-lg transition-all duration-300 transform active:scale-95 whitespace-nowrap"
+                className="px-6 py-3.5 bg-pulse-green hover:bg-pulse-green/95 text-white text-xs font-bold tracking-widest uppercase rounded-[2px] shadow-lg transition-all duration-300 transform active:scale-95 whitespace-nowrap"
                 id="btn-newsletter-subscribe"
               >
                 Get VIP Access
               </button>
             </form>
           ) : (
-            <div className="p-6 bg-white/5 border border-white/10 rounded-2xl max-w-md mx-auto flex items-center gap-3.5 text-left animate-fade-in">
-              <div className="p-2 bg-pulse-green/10 text-pulse-green rounded-full shrink-0">
+            <div className="p-6 bg-white/5 border border-white/10 rounded-[2px] max-w-md mx-auto flex items-center gap-3.5 text-left animate-fade-in">
+              <div className="p-2 bg-pulse-green/10 text-pulse-green rounded-[2px] shrink-0">
                 <CheckCircle2 size={18} />
               </div>
               <div>

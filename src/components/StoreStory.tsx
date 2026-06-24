@@ -11,7 +11,7 @@ export default function StoreStory() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Visual Architecture Frame (Left 5 Columns) */}
-          <div className="lg:col-span-5 relative h-[380px] sm:h-[480px] rounded-2xl overflow-hidden shadow-sm border border-border-gray">
+          <div className="lg:col-span-5 relative h-[380px] sm:h-[480px] rounded-[2px] overflow-hidden shadow-md border border-border-gray">
             <img
               src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=1200&auto=format&fit=crop"
               alt="PULSE Storefront Design Concept"
@@ -19,7 +19,7 @@ export default function StoreStory() {
               referrerPolicy="no-referrer"
             />
             {/* Elegant overlay badge */}
-            <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-5 rounded-xl border border-border-gray/50 shadow-md">
+            <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-5 rounded-[2px] border border-border-gray/50 shadow-md">
               <span className="text-[9px] font-bold tracking-widest text-pulse-green uppercase font-price block mb-1">
                 FLAGSHIP BOUTIQUE
               </span>
@@ -98,9 +98,9 @@ export default function StoreStory() {
                     {STORE_EVENTS.map((ev) => (
                       <div
                         key={ev.id}
-                        className="bg-white border border-border-gray p-3.5 rounded-xl flex gap-3.5 items-start hover:border-rich-black/20 hover:shadow-sm transition-all"
+                        className="bg-white border border-border-gray p-3.5 rounded-[2px] flex gap-3.5 items-start hover:border-nb-red/20 hover:shadow-md transition-all"
                       >
-                        <div className="p-2 bg-pulse-green/10 text-pulse-green rounded-lg shrink-0">
+                        <div className="p-2 bg-pulse-green/10 text-pulse-green rounded-[2px] shrink-0">
                           <Calendar size={15} />
                         </div>
                         <div className="space-y-1">
@@ -108,7 +108,7 @@ export default function StoreStory() {
                             <h4 className="text-xs font-bold text-rich-black font-headline">
                               {ev.title}
                             </h4>
-                            <span className="text-[10px] font-bold text-pulse-green bg-pulse-green/10 px-2 py-0.5 rounded font-price whitespace-nowrap self-start sm:self-auto">
+                            <span className="text-[10px] font-bold text-pulse-green bg-pulse-green/10 px-2 py-0.5 rounded-[1px] font-price whitespace-nowrap self-start sm:self-auto">
                               {ev.date}
                             </span>
                           </div>
@@ -131,7 +131,7 @@ export default function StoreStory() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 font-sans">
                     
                     {/* Hours block */}
-                    <div className="space-y-3 bg-white p-5 rounded-xl border border-border-gray">
+                    <div className="space-y-3 bg-white p-5 rounded-[2px] border border-border-gray">
                       <div className="flex items-center gap-2 text-xs font-bold text-rich-black font-headline border-b border-border-gray pb-2">
                         <Clock size={14} className="text-pulse-green" />
                         <span>Boutique Schedule</span>
@@ -151,9 +151,9 @@ export default function StoreStory() {
                         </div>
                       </div>
                     </div>
-
+ 
                     {/* Support details */}
-                    <div className="space-y-3 bg-white p-5 rounded-xl border border-border-gray">
+                    <div className="space-y-3 bg-white p-5 rounded-[2px] border border-border-gray">
                       <div className="flex items-center gap-2 text-xs font-bold text-rich-black font-headline border-b border-border-gray pb-2">
                         <MessageSquare size={14} className="text-pulse-green" />
                         <span>Concierge Helpline</span>
@@ -167,7 +167,6 @@ export default function StoreStory() {
                         </p>
                       </div>
                     </div>
-
                   </div>
                 </div>
               )}

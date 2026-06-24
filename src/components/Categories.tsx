@@ -64,7 +64,7 @@ export default function Categories({ onCategorySelect }: CategoriesProps) {
             <div
               key={index}
               onClick={() => handleCardClick(item.categoryKey)}
-              className="group relative h-[380px] sm:h-[420px] rounded-2xl overflow-hidden cursor-pointer shadow-sm border border-border-gray/30 bg-rich-black flex flex-col justify-end p-6"
+              className="group relative h-[380px] sm:h-[420px] rounded-[2px] overflow-hidden cursor-pointer shadow-md border border-border-gray/30 bg-rich-black flex flex-col justify-end p-6"
               id={`category-card-${item.title.toLowerCase().replace(' ', '-')}`}
             >
               {/* Image with subtle hover zoom */}
@@ -80,7 +80,7 @@ export default function Categories({ onCategorySelect }: CategoriesProps) {
 
               {/* Text Meta Content */}
               <div className="relative z-10 space-y-2 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-500 ease-out text-left">
-                <span className="text-[9px] font-bold tracking-widest text-pulse-green bg-pulse-green/10 border border-pulse-green/20 px-2.5 py-1 rounded uppercase font-price">
+                <span className="text-[9px] font-bold tracking-widest text-pulse-green bg-pulse-green/10 border border-pulse-green/20 px-2.5 py-1 rounded-[1px] uppercase font-price">
                   {item.tagline}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight font-headline">

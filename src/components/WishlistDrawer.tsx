@@ -39,14 +39,14 @@ export default function WishlistDrawer({
               <h2 className="text-sm font-bold uppercase tracking-wider text-rich-black font-headline">
                 My Wishlist
               </h2>
-              <span className="text-[10px] font-bold bg-rich-black text-white px-2 py-0.5 rounded-full font-price">
+              <span className="text-[10px] font-bold bg-rich-black text-white px-2 py-0.5 rounded-[1px] font-price">
                 {wishlistedProducts.length}
               </span>
             </div>
             
             <button
               onClick={onClose}
-              className="p-2 rounded-full hover:bg-border-gray text-rich-black transition-colors"
+              className="p-2 rounded-[2px] hover:bg-border-gray text-rich-black transition-colors"
               aria-label="Close wishlist drawer"
               id="btn-close-wishlist-drawer"
             >
@@ -62,7 +62,7 @@ export default function WishlistDrawer({
                 {wishlistedProducts.map((product) => (
                   <div
                     key={product.id}
-                    className="flex gap-4 p-3 border border-border-gray rounded-xl hover:border-rich-black/15 transition-all cursor-pointer"
+                    className="flex gap-4 p-3 border border-border-gray rounded-[2px] hover:border-nb-red/20 transition-all cursor-pointer"
                     onClick={() => {
                       onProductClick(product);
                       onClose();
@@ -70,7 +70,7 @@ export default function WishlistDrawer({
                     id={`wishlist-row-${product.id}`}
                   >
                     {/* Item Image */}
-                    <div className="w-16 h-16 rounded-lg bg-soft-gray p-2 flex items-center justify-center shrink-0">
+                    <div className="w-16 h-16 rounded-[2px] bg-soft-gray p-2 flex items-center justify-center shrink-0">
                       <img
                         src={product.images[0]}
                         alt={product.name}
@@ -127,7 +127,7 @@ export default function WishlistDrawer({
                 </div>
                 <button
                   onClick={onClose}
-                  className="px-4 py-2 bg-rich-black text-white text-[10px] font-bold tracking-widest uppercase rounded-lg hover:bg-pulse-green transition-all"
+                  className="px-4 py-2 bg-rich-black text-white text-[10px] font-bold tracking-widest uppercase rounded-[2px] hover:bg-pulse-green transition-all"
                   id="btn-wishlist-shop-now"
                 >
                   Start Browsing

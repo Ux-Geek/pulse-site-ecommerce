@@ -51,7 +51,7 @@ export default function ProductDetailModal({
 
       {/* Success Toast */}
       {showSuccessToast && (
-        <div className="fixed top-24 left-1/2 -translate-x-1/2 z-50 bg-rich-black text-white px-5 py-3 rounded-xl shadow-2xl border border-pulse-green/30 flex items-center gap-3 animate-bounce">
+        <div className="fixed top-24 left-1/2 -translate-x-1/2 z-50 bg-rich-black text-white px-5 py-3 rounded-[2px] shadow-2xl border border-pulse-green/30 flex items-center gap-3 animate-bounce">
           <div className="w-2.5 h-2.5 rounded-full bg-pulse-green" />
           <span className="text-xs font-bold tracking-wider uppercase font-price">
             Added to bag successfully
@@ -60,12 +60,12 @@ export default function ProductDetailModal({
       )}
 
       {/* Main Content Card - Rounded-2xl, Warm light background */}
-      <div className="relative bg-white border border-border-gray w-full max-w-5xl rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col md:flex-row z-10">
+      <div className="relative bg-white border border-border-gray w-full max-w-5xl rounded-[4px] shadow-2xl overflow-hidden max-h-[90vh] flex flex-col md:flex-row z-10">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 p-2 rounded-full bg-soft-gray/90 hover:bg-border-gray hover:scale-105 transition-all text-rich-black"
+          className="absolute top-4 right-4 z-20 p-2 rounded-[2px] bg-soft-gray/90 hover:bg-border-gray hover:scale-105 transition-all text-rich-black"
           aria-label="Close modal"
           id="btn-close-detail"
         >
@@ -78,7 +78,7 @@ export default function ProductDetailModal({
           {/* Main Active Image View */}
           <div className="flex-1 flex items-center justify-center min-h-[250px] sm:min-h-[350px] relative p-6">
             {product.bestSeller && (
-              <span className="absolute top-0 left-0 bg-pulse-green text-white text-[9px] font-bold tracking-widest uppercase px-2.5 py-1 rounded shadow-sm">
+              <span className="absolute top-0 left-0 bg-pulse-green text-white text-[9px] font-black tracking-widest uppercase px-2.5 py-1 rounded-[1px] shadow-sm">
                 Best Seller
               </span>
             )}
@@ -89,14 +89,14 @@ export default function ProductDetailModal({
               referrerPolicy="no-referrer"
             />
           </div>
-
+ 
           {/* Thumbnails Swapper */}
           <div className="flex gap-3 justify-center">
             {product.images.map((img, index) => (
               <button
                 key={index}
                 onClick={() => setActiveImage(img)}
-                className={`w-16 h-16 rounded-xl border-2 overflow-hidden bg-white p-1.5 transition-all flex items-center justify-center ${
+                className={`w-16 h-16 rounded-[2px] border-2 overflow-hidden bg-white p-1.5 transition-all flex items-center justify-center ${
                   activeImage === img ? 'border-pulse-green' : 'border-border-gray hover:border-rich-black/35'
                 }`}
                 id={`btn-thumbnail-${index}`}
@@ -115,7 +115,7 @@ export default function ProductDetailModal({
             {/* Title & Brand */}
             <div className="space-y-1">
               <div className="flex justify-between items-center">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-pulse-green bg-pulse-green/10 px-2.5 py-0.5 rounded font-price">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-pulse-green bg-pulse-green/10 px-2.5 py-0.5 rounded-[2px] font-price">
                   {product.brand}
                 </span>
                 {/* Rating */}
@@ -166,7 +166,7 @@ export default function ProductDetailModal({
 
               {/* Sizing Interactive Guide */}
               {showSizingGuide && (
-                <div className="bg-soft-gray border border-border-gray p-3 rounded-xl text-[10px] space-y-1 animate-fade-in font-price">
+                <div className="bg-soft-gray border border-border-gray p-3 rounded-[2px] text-[10px] space-y-1 animate-fade-in font-price">
                   <div className="grid grid-cols-3 font-bold border-b border-border-gray pb-1 text-rich-black/50">
                     <span>US Men's</span>
                     <span>US Women's</span>
@@ -194,17 +194,17 @@ export default function ProductDetailModal({
                   </div>
                 </div>
               )}
-
+ 
               {/* Size Buttons Grid */}
               <div className="flex flex-wrap gap-1.5">
                 {product.sizes.map((size) => (
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`px-3.5 py-2 text-xs font-bold border rounded-lg transition-all ${
+                    className={`px-3.5 py-2.5 text-xs font-bold border rounded-[2px] transition-all min-w-[40px] text-center ${
                       selectedSize === size
-                        ? 'bg-rich-black border-rich-black text-white font-black'
-                        : 'bg-white border-border-gray hover:border-rich-black/40 text-rich-black'
+                        ? 'bg-nb-black border-nb-black text-white font-black'
+                        : 'bg-white border-border-gray hover:border-nb-red hover:text-nb-red text-rich-black'
                     }`}
                     id={`btn-modal-size-${size}`}
                   >
@@ -213,21 +213,21 @@ export default function ProductDetailModal({
                 ))}
               </div>
             </div>
-
+ 
             {/* Color chips */}
             <div className="space-y-2">
               <label className="text-[11px] font-bold uppercase text-rich-black tracking-wider font-headline">
                 Colorways
               </label>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 {product.colors.map((color) => (
                   <button
                     key={color}
                     onClick={() => setSelectedColor(color)}
-                    className={`px-3 py-1.5 text-[10px] font-bold border rounded-lg transition-all ${
+                    className={`px-3 py-1.5 text-[10px] font-bold border rounded-[2px] transition-all ${
                       selectedColor === color
-                        ? 'bg-pulse-green/10 border-pulse-green text-pulse-green'
-                        : 'bg-white border-border-gray hover:border-rich-black/35 text-rich-black/70'
+                        ? 'bg-nb-red text-white border-nb-red font-bold'
+                        : 'bg-white border-border-gray hover:border-nb-red/35 text-rich-black/70'
                     }`}
                     id={`btn-modal-color-${color}`}
                   >
@@ -256,7 +256,7 @@ export default function ProductDetailModal({
             {/* Quantity adjustments */}
             <div className="flex items-center justify-between">
               <span className="text-[11px] font-bold uppercase text-rich-black/60 font-headline">Quantity:</span>
-              <div className="flex items-center border border-border-gray rounded-lg bg-white overflow-hidden">
+              <div className="flex items-center border border-border-gray rounded-[2px] bg-white overflow-hidden">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
                   className="px-3 py-1.5 hover:bg-soft-gray text-rich-black font-bold border-r border-border-gray text-xs"
@@ -274,12 +274,12 @@ export default function ProductDetailModal({
                 </button>
               </div>
             </div>
-
+ 
             {/* Primary Action Buttons row */}
             <div className="flex gap-3">
               <button
                 onClick={handleAddToCart}
-                className="flex-1 py-3.5 bg-rich-black hover:bg-pulse-green text-white text-xs font-bold tracking-widest uppercase rounded-full shadow-md transition-all flex items-center justify-center gap-2 transform active:scale-98"
+                className="flex-1 py-3.5 bg-nb-black hover:bg-nb-red text-white text-xs font-bold tracking-widest uppercase rounded-[2px] shadow-lg transition-all flex items-center justify-center gap-2 transform active:scale-98"
                 id="btn-modal-add-to-bag"
               >
                 <ShoppingBag size={13} />
@@ -288,7 +288,7 @@ export default function ProductDetailModal({
               
               <button
                 onClick={() => onWishlistToggle(product.id)}
-                className="p-3.5 border border-border-gray hover:border-rich-black/40 rounded-full text-rich-black bg-white hover:scale-105 transition-all"
+                className="p-3.5 border border-border-gray hover:border-nb-red rounded-[2px] text-rich-black bg-white hover:scale-105 transition-all"
                 aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
                 id="btn-modal-wishlist-toggle"
               >

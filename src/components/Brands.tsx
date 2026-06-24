@@ -41,11 +41,11 @@ export default function Brands({ onBrandSelect }: BrandsProps) {
             <button
               key={brand}
               onClick={() => handleBrandClick(brand)}
-              className="w-full flex flex-col items-center justify-center p-3.5 border border-border-gray hover:border-rich-black rounded-xl bg-soft-gray/50 hover:bg-white hover:shadow-sm transition-all duration-300 group"
+              className="w-full flex flex-col items-center justify-center p-3.5 border border-border-gray hover:border-nb-red rounded-[2px] bg-soft-gray/50 hover:bg-white hover:shadow-md transition-all duration-300 group"
               id={`brand-btn-${brand.toLowerCase().replace(' ', '-')}`}
             >
               {/* Render an understated visual reference indicator */}
-              <div className="w-10 h-10 rounded-full overflow-hidden border border-border-gray/50 mb-2 flex items-center justify-center bg-white group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-[2px] overflow-hidden border border-border-gray/50 mb-2 flex items-center justify-center bg-white group-hover:scale-105 transition-transform">
                 <img
                   src={brandLogos[brand] || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=100&auto=format&fit=crop'}
                   alt={brand}

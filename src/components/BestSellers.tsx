@@ -47,7 +47,7 @@ export default function BestSellers({ onProductClick, onAddToCart }: BestSellers
           <div className="flex gap-2">
             <button
               onClick={() => scroll('left')}
-              className="p-2.5 rounded-full border border-border-gray hover:border-rich-black hover:bg-soft-gray text-rich-black transition-all"
+              className="p-2.5 rounded-[2px] border border-border-gray hover:border-nb-red hover:bg-soft-gray text-rich-black transition-all"
               aria-label="Previous items"
               id="btn-best-sellers-prev"
             >
@@ -55,7 +55,7 @@ export default function BestSellers({ onProductClick, onAddToCart }: BestSellers
             </button>
             <button
               onClick={() => scroll('right')}
-              className="p-2.5 rounded-full border border-border-gray hover:border-rich-black hover:bg-soft-gray text-rich-black transition-all"
+              className="p-2.5 rounded-[2px] border border-border-gray hover:border-nb-red hover:bg-soft-gray text-rich-black transition-all"
               aria-label="Next items"
               id="btn-best-sellers-next"
             >
@@ -73,12 +73,12 @@ export default function BestSellers({ onProductClick, onAddToCart }: BestSellers
           {bestSellers.map((product) => (
             <div
               key={product.id}
-              className="min-w-[280px] sm:min-w-[320px] max-w-[320px] snap-start bg-soft-gray/30 border border-border-gray hover:border-rich-black/20 p-5 rounded-2xl flex flex-col justify-between group transition-all duration-300 hover:shadow-md cursor-pointer"
+              className="min-w-[280px] sm:min-w-[320px] max-w-[320px] snap-start bg-soft-gray/30 border border-border-gray hover:border-nb-red/20 p-5 rounded-[2px] flex flex-col justify-between group transition-all duration-300 hover:shadow-md cursor-pointer"
               onClick={() => onProductClick(product)}
               id={`best-seller-card-${product.id}`}
             >
               {/* Product Frame */}
-              <div className="relative aspect-square w-full rounded-xl bg-white flex items-center justify-center mb-4 p-4 overflow-hidden">
+              <div className="relative aspect-square w-full rounded-[2px] bg-white flex items-center justify-center mb-4 p-4 overflow-hidden border border-transparent group-hover:border-nb-grey-medium transition-all">
                 <img
                   src={product.images[0]}
                   alt={product.name}
@@ -88,7 +88,7 @@ export default function BestSellers({ onProductClick, onAddToCart }: BestSellers
                 
                 {/* Visual hover quick-view overlay */}
                 <div className="absolute inset-0 bg-rich-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                  <span className="bg-white/95 text-[10px] font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg shadow-sm flex items-center gap-1 text-rich-black">
+                  <span className="bg-white/95 text-[10px] font-bold uppercase tracking-wider px-3.5 py-2 rounded-[2px] shadow-sm flex items-center gap-1 text-rich-black">
                     <Eye size={12} />
                     <span>View Details</span>
                   </span>
@@ -106,7 +106,7 @@ export default function BestSellers({ onProductClick, onAddToCart }: BestSellers
                   </span>
                 </div>
 
-                <h3 className="text-xs sm:text-sm font-semibold text-rich-black tracking-tight leading-tight line-clamp-1">
+                <h3 className="text-xs sm:text-sm font-bold text-nb-black tracking-tight leading-tight line-clamp-1 font-headline">
                   {product.name}
                 </h3>
 

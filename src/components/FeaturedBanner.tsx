@@ -23,7 +23,7 @@ export default function FeaturedBanner({ onExploreClick }: FeaturedBannerProps) 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 text-left">
         <div className="max-w-xl space-y-4 sm:space-y-6 animate-fade-in">
           
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 text-white rounded-full border border-white/10 text-[10px] font-bold tracking-widest uppercase font-price">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 text-white rounded-[2px] border border-white/10 text-[10px] font-bold tracking-widest uppercase font-price">
             <Sparkles size={11} className="text-pulse-green fill-pulse-green/10" />
             <span>EXPRESSIVE OUTDOORS SERIES</span>
           </div>
@@ -44,7 +44,7 @@ export default function FeaturedBanner({ onExploreClick }: FeaturedBannerProps) 
           <div className="pt-2">
             <button
               onClick={onExploreClick}
-              className="px-5 py-3 bg-white hover:bg-pulse-green text-rich-black hover:text-white text-xs font-bold tracking-widest uppercase rounded-full shadow-md transition-all duration-300 flex items-center gap-2 group transform active:scale-95"
+              className="px-5 py-3 bg-white hover:bg-nb-red text-rich-black hover:text-white text-xs font-bold tracking-widest uppercase rounded-[2px] shadow-lg transition-all duration-300 flex items-center gap-2 group transform active:scale-95"
               id="btn-banner-explore"
             >
               <span>Explore Collection</span>

@@ -90,7 +90,7 @@ export default function NewArrivals({
                   onCategorySelect(cat as any);
                   setSelectedBrand('All'); // Reset brand on category change
                 }}
-                className={`px-4 py-2 text-xs font-semibold tracking-wider uppercase rounded-full transition-all ${
+                className={`px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-[2px] transition-all ${
                   activeCategory === cat
                     ? 'bg-rich-black text-white'
                     : 'bg-soft-gray hover:bg-border-gray text-rich-black/70 hover:text-rich-black'
@@ -115,7 +115,7 @@ export default function NewArrivals({
                 <button
                   key={brand}
                   onClick={() => setSelectedBrand(brand)}
-                  className={`px-3 py-1 text-[11px] font-semibold border rounded-md transition-all ${
+                  className={`px-3 py-1 text-[11px] font-bold border rounded-[2px] transition-all ${
                     selectedBrand === brand
                       ? 'bg-pulse-green/10 border-pulse-green text-pulse-green font-bold'
                       : 'bg-transparent border-border-gray hover:border-rich-black/30 text-rich-black/70'
@@ -135,7 +135,7 @@ export default function NewArrivals({
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              className="bg-transparent text-xs font-semibold text-rich-black py-1 px-2 border border-border-gray rounded focus:outline-none focus:border-pulse-green focus:text-pulse-green cursor-pointer"
+              className="bg-transparent text-xs font-bold text-rich-black py-1.5 px-2.5 border border-border-gray rounded-[2px] focus:outline-none focus:border-pulse-green focus:text-pulse-green cursor-pointer"
               id="select-sort"
             >
               <option value="default">Release Date</option>
@@ -172,7 +172,7 @@ export default function NewArrivals({
                 setSelectedBrand('All');
                 setSortBy('default');
               }}
-              className="mt-4 px-4 py-2 bg-rich-black text-white text-[10px] font-bold tracking-widest uppercase rounded-lg hover:bg-pulse-green transition-all"
+              className="mt-4 px-4 py-2 bg-rich-black text-white text-[10px] font-bold tracking-widest uppercase rounded-[2px] hover:bg-pulse-green transition-all"
               id="btn-reset-filters"
             >
               Reset Filters
