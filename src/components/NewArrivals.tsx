@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Product } from '../types';
 import { PRODUCTS } from '../data';
 import ProductCard from './ProductCard';
-import { SlidersHorizontal, ArrowUpDown, RefreshCw, Layers } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 interface NewArrivalsProps {
   onQuickAdd: (product: Product, size: string) => void;
@@ -24,21 +24,17 @@ export default function NewArrivals({
   const [sortBy, setSortBy] = useState<'default' | 'price-asc' | 'price-desc' | 'rating'>('default');
   const [selectedBrand, setSelectedBrand] = useState<string>('All');
 
-  // Filter & Sort Logic
   const filteredAndSortedProducts = useMemo(() => {
     let list = PRODUCTS;
 
-    // Filter by main category
     if (activeCategory !== 'All') {
       list = list.filter((p) => p.category === activeCategory);
     }
 
-    // Filter by brand
     if (selectedBrand !== 'All') {
       list = list.filter((p) => p.brand === selectedBrand);
     }
 
-    // Sort
     if (sortBy === 'price-asc') {
       list = [...list].sort((a, b) => a.price - b.price);
     } else if (sortBy === 'price-desc') {
@@ -47,11 +43,9 @@ export default function NewArrivals({
       list = [...list].sort((a, b) => b.rating - a.rating);
     }
 
-    // Always crop to a standard grid space for "New Arrivals", but let's show up to 8 cards
     return list;
   }, [activeCategory, selectedBrand, sortBy]);
 
-  // Extract unique brands in current selection
   const brandsList = useMemo(() => {
     const brands = new Set<string>();
     PRODUCTS.forEach((p) => {
@@ -62,94 +56,87 @@ export default function NewArrivals({
     return ['All', ...Array.from(brands)];
   }, [activeCategory]);
 
-  return (
-    <section id="products-section" className="py-16 sm:py-24 bg-white border-b border-border-gray scroll-mt-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Editorial Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div className="text-left space-y-2">
-            <div className="flex items-center gap-2 text-[10px] font-bold text-pulse-green tracking-[0.2em] uppercase font-price">
-              <Layers size={12} />
-              <span>PULSE Tanger Outlets Collection</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-rich-black font-headline">
-              New Arrivals
-            </h2>
-            <p className="text-xs sm:text-sm text-rich-black/50 max-w-xl font-sans">
-              Our latest curation of high-demand performance sneakers and everyday luxury streetwear.
-            </p>
-          </div>
+  const categories = ['All', 'Sneakers', 'Streetwear', 'Accessories'];
 
-          {/* Quick Category Tab Selectors */}
-          <div className="flex flex-wrap gap-2">
-            {['All', 'Sneakers', 'Streetwear', 'Accessories'].map((cat) => (
+  return (
+    <section id="products-section" className="py-16 sm:py-20 bg-white scroll-mt-24">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+
+        {/* Section Header */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-nb-black font-headline uppercase">
+            New Arrivals
+          </h2>
+        </div>
+
+        {/* Category Tabs — underline style */}
+        <div className="flex justify-center gap-6 sm:gap-8 border-b border-nb-grey-200 mb-8">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => {
+                onCategorySelect(cat as any);
+                setSelectedBrand('All');
+              }}
+              className={`pb-3 text-[13px] font-medium tracking-wide uppercase transition-all relative ${
+                activeCategory === cat
+                  ? 'text-nb-black'
+                  : 'text-nb-grey-400 hover:text-nb-black'
+              }`}
+              id={`cat-pill-${cat}`}
+            >
+              {cat}
+              {activeCategory === cat && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-nb-black" />
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* Filters Bar — minimal */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+          {/* Brand Filter */}
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-[11px] font-medium text-nb-grey-400 uppercase tracking-wider mr-1">Filter:</span>
+            {brandsList.map((brand) => (
               <button
-                key={cat}
-                onClick={() => {
-                  onCategorySelect(cat as any);
-                  setSelectedBrand('All'); // Reset brand on category change
-                }}
-                className={`px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-[2px] transition-all ${
-                  activeCategory === cat
-                    ? 'bg-rich-black text-white'
-                    : 'bg-soft-gray hover:bg-border-gray text-rich-black/70 hover:text-rich-black'
+                key={brand}
+                onClick={() => setSelectedBrand(brand)}
+                className={`text-[12px] font-medium px-3 py-1.5 transition-all ${
+                  selectedBrand === brand
+                    ? 'bg-nb-black text-white'
+                    : 'text-nb-grey-500 hover:text-nb-black bg-nb-grey-100 hover:bg-nb-grey-200'
                 }`}
-                id={`cat-pill-${cat}`}
+                id={`brand-filter-${brand}`}
               >
-                {cat}
+                {brand}
               </button>
             ))}
           </div>
-        </div>
 
-        {/* Filters Controls Bar */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 py-4 border-y border-border-gray mb-8">
-          
-          {/* Brand Filter */}
-          <div className="flex items-center gap-2 flex-wrap text-left">
-            <SlidersHorizontal size={14} className="text-rich-black/50 shrink-0" />
-            <span className="text-xs font-semibold text-rich-black/60 mr-1 uppercase tracking-wider font-price">Brand:</span>
-            <div className="flex gap-1.5 flex-wrap">
-              {brandsList.map((brand) => (
-                <button
-                  key={brand}
-                  onClick={() => setSelectedBrand(brand)}
-                  className={`px-3 py-1 text-[11px] font-bold border rounded-[2px] transition-all ${
-                    selectedBrand === brand
-                      ? 'bg-pulse-green/10 border-pulse-green text-pulse-green font-bold'
-                      : 'bg-transparent border-border-gray hover:border-rich-black/30 text-rich-black/70'
-                  }`}
-                  id={`brand-filter-${brand}`}
-                >
-                  {brand}
-                </button>
-              ))}
+          {/* Sort Dropdown */}
+          <div className="flex items-center gap-2 relative">
+            <span className="text-[11px] font-medium text-nb-grey-400 uppercase tracking-wider">Sort:</span>
+            <div className="relative">
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as any)}
+                className="appearance-none bg-transparent text-[12px] font-medium text-nb-black py-1.5 pl-2 pr-6 border border-nb-grey-200 focus:outline-none focus:border-nb-black cursor-pointer"
+                id="select-sort"
+              >
+                <option value="default">Newest</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating">Top Rated</option>
+              </select>
+              <ChevronDown size={12} className="absolute right-1.5 top-1/2 -translate-y-1/2 pointer-events-none text-nb-grey-400" />
             </div>
           </div>
-
-          {/* Sorter Selector */}
-          <div className="flex items-center gap-2 text-left self-end sm:self-auto">
-            <ArrowUpDown size={14} className="text-rich-black/50 shrink-0" />
-            <span className="text-xs font-semibold text-rich-black/60 uppercase tracking-wider font-price">Sort:</span>
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as any)}
-              className="bg-transparent text-xs font-bold text-rich-black py-1.5 px-2.5 border border-border-gray rounded-[2px] focus:outline-none focus:border-pulse-green focus:text-pulse-green cursor-pointer"
-              id="select-sort"
-            >
-              <option value="default">Release Date</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
-              <option value="rating">Rating</option>
-            </select>
-          </div>
-
         </div>
 
-        {/* 2x4 Product Grid */}
+        {/* Product Grid — 4 col desktop, 2 col mobile */}
         {filteredAndSortedProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {filteredAndSortedProducts.slice(0, 8).map((product) => (
               <ProductCard
                 key={product.id}
@@ -162,24 +149,22 @@ export default function NewArrivals({
             ))}
           </div>
         ) : (
-          <div className="py-16 text-center border border-dashed border-border-gray rounded-2xl bg-soft-gray/50 max-w-lg mx-auto">
-            <RefreshCw size={24} className="mx-auto text-rich-black/20 mb-2 animate-spin" />
-            <h3 className="text-sm font-bold text-rich-black">No arrivals match filters</h3>
-            <p className="text-xs text-rich-black/40 mt-1">Try resetting your brand filters or viewing another collection.</p>
+          <div className="py-16 text-center max-w-md mx-auto">
+            <h3 className="text-sm font-semibold text-nb-black uppercase tracking-wider">No products found</h3>
+            <p className="text-xs text-nb-grey-400 mt-2">Try adjusting your filters or viewing another category.</p>
             <button
               onClick={() => {
                 onCategorySelect('All');
                 setSelectedBrand('All');
                 setSortBy('default');
               }}
-              className="mt-4 px-4 py-2 bg-rich-black text-white text-[10px] font-bold tracking-widest uppercase rounded-[2px] hover:bg-pulse-green transition-all"
+              className="mt-4 px-5 py-2.5 bg-nb-black text-white text-[11px] font-semibold tracking-widest uppercase hover:bg-nb-grey-600 transition-all"
               id="btn-reset-filters"
             >
               Reset Filters
             </button>
           </div>
         )}
-
       </div>
     </section>
   );
