@@ -21,7 +21,7 @@ export default function Footer({ onCategorySelect, onScrollToStory }: FooterProp
 
         {/* Brand */}
         <div className="space-y-4">
-          <span className="text-lg font-black tracking-[0.15em] font-headline uppercase">PULSE</span>
+          <img src="/pulse.svg" alt="PULSE" className="h-7 invert grayscale brightness-200" />
           <p className="text-[13px] text-white/50 leading-relaxed">
             Premium sneakers and streetwear. Located at Tanger Outlets Houston, Texas.
           </p>

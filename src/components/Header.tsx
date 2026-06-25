@@ -72,10 +72,10 @@ export default function Header({
                 onCategorySelect('All');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="text-xl sm:text-2xl font-black tracking-[0.15em] text-nb-black font-headline uppercase"
+              className="flex items-center"
               id="btn-brand-logo"
             >
-              PULSE
+              <img src="/pulse.svg" alt="PULSE" className="h-6 sm:h-8" />
             </button>
           </div>
 
