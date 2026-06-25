@@ -24,6 +24,8 @@ export default function Footer({ onCategorySelect, onScrollToStory }: FooterProp
           <img src="/pulse.svg" alt="PULSE" className="h-7 invert grayscale brightness-200" />
           <p className="text-[13px] text-white/50 leading-relaxed">
             Premium sneakers and streetwear. Located at Tanger Outlets Houston, Texas.
+            <br />
+            Second branch location: 5000 Katy Mills Cir, Katy, Texas.
           </p>
         </div>
 
@@ -58,11 +60,7 @@ export default function Footer({ onCategorySelect, onScrollToStory }: FooterProp
         <div className="space-y-4">
           <h4 className="text-[12px] font-bold uppercase tracking-wider text-white/40">Company</h4>
           <ul className="space-y-2.5">
-            <li>
-              <button onClick={onScrollToStory} className="text-[13px] text-white/60 hover:text-white transition-colors">
-                Our Story
-              </button>
-            </li>
+
             <li>
               <a href="#story-section" className="text-[13px] text-white/60 hover:text-white transition-colors">
                 Events

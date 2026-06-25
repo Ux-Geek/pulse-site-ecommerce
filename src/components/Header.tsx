@@ -44,7 +44,7 @@ export default function Header({
   return (
     <header className="sticky top-0 z-50 w-full bg-white">
       {/* Promo Bar — clean black, centered text */}
-      <div className="w-full bg-nb-black text-white text-[11px] tracking-[0.12em] uppercase py-2.5 text-center font-medium">
+      <div className="w-full bg-green-400 text-black text-[11px] tracking-[0.12em] uppercase py-2.5 text-center font-medium">
         <span>Free Shipping on Orders Over $100</span>
         <span className="hidden sm:inline mx-3 text-nb-grey-400">|</span>
         <span className="hidden sm:inline">Free In-Store Pickup Available</span>
@@ -101,13 +101,7 @@ export default function Header({
                 )}
               </button>
             ))}
-            <button
-              onClick={onScrollToStory}
-              className="text-[13px] font-medium tracking-wide uppercase text-nb-grey-500 hover:text-nb-black transition-all link-underline py-1"
-              id="nav-item-story"
-            >
-              Our Story
-            </button>
+
           </nav>
 
           {/* Right: Utility Icons */}
@@ -215,17 +209,7 @@ export default function Header({
                   <ChevronRight size={16} className="text-nb-grey-400" />
                 </button>
               ))}
-              <button
-                onClick={() => {
-                  onScrollToStory();
-                  setIsMobileMenuOpen(false);
-                }}
-                className="w-full flex items-center justify-between py-3.5 text-left text-base font-semibold tracking-wide uppercase text-nb-grey-500 border-b border-nb-grey-200"
-                id="mobile-nav-story"
-              >
-                <span>Our Story</span>
-                <ChevronRight size={16} className="text-nb-grey-400" />
-              </button>
+
             </div>
 
             {/* Store Info */}

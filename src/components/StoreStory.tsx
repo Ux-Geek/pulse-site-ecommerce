@@ -2,48 +2,41 @@ import React from 'react';
 
 export default function StoreStory() {
   return (
-    <section id="story-section" className="py-20 sm:py-28 bg-white border-t border-nb-grey-200 scroll-mt-20">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
-          
-          {/* Text Content */}
-          <div className="order-2 md:order-1">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-nb-black font-headline uppercase mb-8">
-              Our Story
+    <section className="relative w-full h-[600px] sm:h-[700px] overflow-hidden bg-nb-grey-100 group">
+      <img
+        src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80"
+        alt="Featured Sneaker"
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105"
+        referrerPolicy="no-referrer"
+      />
+      <div className="absolute inset-0 bg-black/40" />
+      
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-10 text-center">
+          <div className="max-w-3xl mx-auto space-y-6">
+            <span className="text-green-400 text-xs sm:text-sm font-bold tracking-[0.2em] uppercase drop-shadow-md">
+              Exclusive Drop
+            </span>
+            <h2 className="text-5xl sm:text-6xl md:text-8xl text-white font-headline font-black tracking-tight uppercase drop-shadow-lg">
+              The Icon, Evolved
             </h2>
-            
-            <div className="space-y-6 text-nb-grey-500 font-sans text-sm sm:text-base leading-relaxed">
-              <p>
-                Founded in the heart of Texas, PULSE was born out of a shared passion for sneaker culture and international streetwear. We wanted to create a destination where the most sought-after brands could be experienced in person.
-              </p>
-              <p>
-                Located at the Tanger Outlets in Houston, our physical space serves as a community hub for sneakerheads, athletes, and streetwear enthusiasts. We curate a premium selection from globally recognized names like New Balance, Jordan, ASICS, and more.
-              </p>
-              <p>
-                Whether you're looking for your next rotation staple or an exclusive drop, our dedicated team is here to help you elevate your game. Come visit us and find your pulse.
-              </p>
-            </div>
-            
-            <div className="mt-10">
-              <a 
-                href="#"
-                className="inline-block px-8 py-3.5 bg-nb-black text-white text-[13px] font-semibold tracking-widest uppercase hover:bg-nb-grey-600 transition-all duration-200"
+            <p className="text-base sm:text-lg text-white/90 font-sans max-w-lg mx-auto drop-shadow-md">
+              Engineered for the streets. Experience the new generation of comfort and style.
+            </p>
+            <div className="pt-8">
+              <button
+                className="px-10 py-4 bg-white text-nb-black hover:bg-green-400 font-bold text-[13px] tracking-widest uppercase transition-all duration-300"
+                onClick={() => {
+                  const section = document.getElementById('products-section');
+                  if (section) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
               >
-                Visit Houston Store
-              </a>
+                Shop The Collection
+              </button>
             </div>
           </div>
-          
-          {/* Image */}
-          <div className="order-1 md:order-2 h-[400px] sm:h-[500px] lg:h-[600px] w-full bg-nb-grey-100 overflow-hidden relative group">
-            <img 
-              src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&q=80" 
-              alt="PULSE Storefront in Houston" 
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-              referrerPolicy="no-referrer"
-            />
-          </div>
-          
         </div>
       </div>
     </section>
