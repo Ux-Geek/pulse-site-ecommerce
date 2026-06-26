@@ -1,4 +1,5 @@
 import React from 'react';
+import { MapPin } from 'lucide-react';
 
 interface FooterProps {
   onCategorySelect: (category: 'All' | 'Sneakers' | 'Streetwear' | 'Accessories') => void;
@@ -22,11 +23,27 @@ export default function Footer({ onCategorySelect, onScrollToStory }: FooterProp
         {/* Brand */}
         <div className="space-y-4">
           <img src="/pulse.svg" alt="PULSE" className="h-7 invert grayscale brightness-200" />
-          <p className="text-[13px] text-white/50 leading-relaxed">
-            Premium sneakers and streetwear. Located at Tanger Outlets Houston, Texas.
-            <br />
-            Second branch location: 5000 Katy Mills Cir, Katy, Texas.
-          </p>
+          <div className="text-[13px] text-white/50 space-y-4">
+            <p className="leading-relaxed">
+              Premium sneakers and streetwear.
+            </p>
+            <div className="space-y-4 pt-4 border-t border-white/10">
+              <div className="flex items-start gap-3 group cursor-default">
+                <MapPin size={16} className="text-white/40 mt-0.5 shrink-0 group-hover:text-white transition-colors" />
+                <div>
+                  <span className="block text-white/80 font-semibold mb-1 text-[11px] uppercase tracking-wider">Houston Location</span>
+                  <span className="text-white/60 leading-snug">Tanger Outlets Houston, Texas</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 group cursor-default">
+                <MapPin size={16} className="text-white/40 mt-0.5 shrink-0 group-hover:text-white transition-colors" />
+                <div>
+                  <span className="block text-white/80 font-semibold mb-1 text-[11px] uppercase tracking-wider">Katy Location</span>
+                  <span className="text-white/60 leading-snug">5000 Katy Mills Cir, Katy, Texas</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Shop */}
